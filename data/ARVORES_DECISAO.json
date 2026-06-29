@@ -1,0 +1,541 @@
+{
+  "meta": {
+    "projeto": "haCARthon 2026",
+    "desafio": 3,
+    "titulo": "Conhecimento da Legislação Ambiental Brasileira para regularização de imóveis rurais",
+    "versao": "1.0",
+    "gerado_em": "2026-06-24",
+    "fontes": [
+      "car.gov.br",
+      "gov.br/conecta",
+      "Embrapa",
+      "Planalto (Lei 12.651/2012)",
+      "órgãos estaduais"
+    ]
+  },
+
+  "tela_inicial": {
+    "id": "root",
+    "titulo": "Como posso ajudar você com o CAR?",
+    "tipo": "decisao",
+    "opcoes": [
+      { "id": "fluxo1", "rotulo": "Ainda não me cadastrei no CAR", "icone": "📋" },
+      { "id": "fluxo2", "rotulo": "Já sou cadastrado, quero entender minha situação", "icone": "🔍" },
+      { "id": "fluxo3", "rotulo": "Quero regularizar meu imóvel", "icone": "🌳" },
+      { "id": "fluxo4", "rotulo": "O que é CAR?", "icone": "ℹ️" }
+    ]
+  },
+
+  "fluxos": {
+    "fluxo1": {
+      "id": "fluxo1",
+      "nome": "Ainda não me cadastrei no CAR",
+      "descricao": "Guia para quem ainda não fez o Cadastro Ambiental Rural",
+      "rota_padrao": ["1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7"],
+      "nos": {
+        "1.1": {
+          "id": "1.1",
+          "titulo": "Por que cadastrar?",
+          "tipo": "informativo",
+          "conteudo": {
+            "topicos": [
+              "É obrigatório por lei (Lei 12.651/2012)",
+              "Sem CAR não consegue crédito rural",
+              "Sem CAR não pode regularizar ambientalmente",
+              "Sem CAR fica vulnerável a sanções",
+              "É gratuito",
+              "Sem prazo final (sistema permanentemente aberto)"
+            ]
+          },
+          "opcoes": [
+            { "id": "1.2", "rotulo": "Quem precisa cadastrar?" },
+            { "id": "1.3", "rotulo": "O que preciso para cadastrar?" },
+            { "id": "1.4", "rotulo": "Passo a passo do cadastro" },
+            { "id": "root", "rotulo": "Voltar ao início", "tipo": "voltar" }
+          ]
+        },
+        "1.2": {
+          "id": "1.2",
+          "titulo": "Quem precisa cadastrar?",
+          "tipo": "informativo",
+          "conteudo": {
+            "topicos": [
+              "TODO proprietário ou possuidor de imóvel rural",
+              "Independentemente do tamanho da área (não há área mínima)",
+              "Independentemente do tipo de atividade",
+              "Pessoa física (CPF) ou jurídica (CNPJ)",
+              "Pequenos produtores têm regras especiais (até 4 módulos fiscais)"
+            ]
+          },
+          "opcoes": [
+            { "id": "1.3", "rotulo": "O que preciso para cadastrar?" },
+            { "id": "1.4", "rotulo": "Passo a passo do cadastro" },
+            { "id": "1.1", "rotulo": "Voltar" }
+          ],
+          "rota_alternativa": {
+            "id": "alt_1.2a",
+            "condicao": "Usuário quer saber mais sobre regras para pequenos",
+            "destino": "3.7",
+            "rotulo": "Ver benefícios para pequenos produtores"
+          }
+        },
+        "1.3": {
+          "id": "1.3",
+          "titulo": "Documentos necessários",
+          "tipo": "informativo",
+          "conteudo": {
+            "topicos": [
+              "CPF ou CNPJ do proprietário",
+              "Documento de identidade",
+              "Comprovante de propriedade ou posse (escritura, matrícula, contrato)",
+              "Área total do imóvel",
+              "Informações da área: APP, Reserva Legal, uso do solo, área consolidada"
+            ],
+            "observacao": "Para ≤4 módulos fiscais: croqui simples (desenho), não precisa de planta profissional"
+          },
+          "opcoes": [
+            { "id": "1.4", "rotulo": "Passo a passo do cadastro" },
+            { "id": "1.1", "rotulo": "Voltar" }
+          ]
+        },
+        "1.4": {
+          "id": "1.4",
+          "titulo": "Passo a passo do cadastro",
+          "tipo": "informativo",
+          "conteudo": {
+            "passos": [
+              "Acesse car.gov.br",
+              "Clique 'Faça seu CAR'",
+              "Escolha seu estado (UF)",
+              "Faça login com GOV.BR (CPF + senha)"
+            ],
+            "observacao": "Em AL, AP, AM, CE, GO, MA, MG, PB, PR, PE, PI, RJ, RN, RR, SC, SE, DF: use Módulo de Cadastro (baixar programa). Demais estados: site do órgão estadual.",
+            "destaque": "NOVO: CAR Pré-Preenchido disponível em 15 estados + DF — dados já vêm automaticamente!"
+          },
+          "opcoes": [
+            { "id": "1.5", "rotulo": "O que é CAR Pré-Preenchido?" },
+            { "id": "1.6", "rotulo": "Dicas para evitar erros" },
+            { "id": "1.7", "rotulo": "O que acontece depois do envio?" },
+            { "id": "1.3", "rotulo": "Voltar" }
+          ]
+        },
+        "1.5": {
+          "id": "1.5",
+          "titulo": "CAR Pré-Preenchido",
+          "tipo": "informativo",
+          "conteudo": {
+            "passos": [
+              "Entre em car.gov.br",
+              "Clique 'Faça seu CAR'",
+              "Selecione a UF",
+              "Acesse Módulo Pré-Preenchido",
+              "Login com GOV.BR",
+              "Clique 'Cadastro pré-preenchido'",
+              "Clique 'Cadastrar Novo Imóvel'"
+            ],
+            "topicos": [
+              "Sistema já traz dados do proprietário e do imóvel (base INCRA)",
+              "Você precisa revisar, complementar, desenhar/confirmar polígono e enviar",
+              "Ao final: sistema gera o RECIBO DE INSCRIÇÃO (guarde o número!)"
+            ]
+          },
+          "opcoes": [
+            { "id": "1.7", "rotulo": "O que fazer depois do envio?" },
+            { "id": "1.4", "rotulo": "Voltar ao passo a passo" }
+          ]
+        },
+        "1.6": {
+          "id": "1.6",
+          "titulo": "Erros comuns (e como evitar)",
+          "tipo": "informativo",
+          "conteudo": {
+                "erros": [
+                  { "erro": "Informar dados incompletos", "solucao": "Tenha todos docs em mãos antes" },
+                  { "erro": "Declarar APP ou RL incorreto", "solucao": "Confira matas, rios, nascentes" },
+                  { "erro": "Não entender o que o sistema está pedindo", "solucao": "Consulte o Manual do Usuário no site" },
+                  { "erro": "Esquecer de acompanhar", "solucao": "Acompanhe na Central do Proprietário" },
+                  { "erro": "Achar que 'enviar' = 'regularizar'", "solucao": "Enviar é só o início — órgão ambiental analisa depois" }
+                ]
+          },
+          "opcoes": [
+            { "id": "1.7", "rotulo": "O que acontece depois do envio?" },
+            { "id": "1.4", "rotulo": "Voltar" }
+          ]
+        },
+        "1.7": {
+          "id": "1.7",
+          "titulo": "Depois do envio",
+          "tipo": "informativo",
+          "conteudo": {
+            "topicos": [
+              "Sistema gera o RECIBO DE INSCRIÇÃO (nº do CAR)",
+              "Cadastro entra em FILA DE ANÁLISE do órgão ambiental",
+              "Acompanhe pela CENTRAL DO PROPRIETÁRIO: car.gov.br → 'Acessar Central'"
+            ],
+            "status": [
+              { "nome": "ATIVO", "descricao": "Cadastro ok. Pode estar em análise ou já analisado." },
+              { "nome": "PENDENTE", "descricao": "Faltam informações ou documentos. Corrija pela Central." },
+              { "nome": "SUSPENSO", "descricao": "Irregularidade identificada. Contate órgão ambiental estadual." },
+              { "nome": "CANCELADO", "descricao": "Cadastro cancelado. Pode precisar fazer novo." }
+            ]
+          },
+          "opcoes": [
+            { "id": "2.1", "rotulo": "Criar cadastro na Central" },
+            { "id": "fluxo2", "rotulo": "Quero entender minha situação" },
+            { "id": "root", "rotulo": "Voltar ao início", "tipo": "voltar" }
+          ]
+        }
+      }
+    },
+
+    "fluxo2": {
+      "id": "fluxo2",
+      "nome": "Já sou cadastrado, quero entender minha situação",
+      "descricao": "Guia para quem já tem CAR e quer consultar status, notificações e retificações",
+      "rota_padrao": ["2.1", "2.2", "2.3", "2.4"],
+      "nos": {
+        "2.1": {
+          "id": "2.1",
+          "titulo": "Como consultar seu CAR",
+          "tipo": "informativo",
+          "conteudo": {
+            "topicos": [
+              "Acesse car.gov.br → 'Consultar'",
+              "Consulte por: nº do Recibo de Inscrição (CAR) ou CPF/CNPJ",
+              "Consulta pública mostra: situação, área total, município, APP e RL declarados",
+              "Para informações completas: use a CENTRAL DO PROPRIETÁRIO (requer cadastro + senha)"
+            ]
+          },
+          "opcoes": [
+            { "id": "2.2", "rotulo": "Entender meu status" },
+            { "id": "2.3", "rotulo": "Recebi notificação — o que fazer?" },
+            { "id": "1.7", "rotulo": "Criar conta na Central" },
+            { "id": "root", "rotulo": "Voltar" }
+          ]
+        },
+        "2.2": {
+          "id": "2.2",
+          "titulo": "Status do cadastro",
+          "tipo": "informativo",
+          "conteudo": {
+            "status": [
+              { "nome": "ATIVO", "icone": "📗", "descricao": "Cadastro ok. Pode estar em análise ou já analisado." },
+              { "nome": "PENDENTE", "icone": "📙", "descricao": "Faltam informações ou documentos. Acesse a Central." },
+              { "nome": "SUSPENSO", "icone": "📕", "descricao": "Irregularidade. Contate o órgão ambiental estadual." },
+              { "nome": "CANCELADO", "icone": "⬛", "descricao": "Cadastro cancelado. Pode ser necessário fazer novo." }
+            ]
+          },
+          "opcoes": [
+            { "id": "2.4", "rotulo": "Meu status é PENDENTE — e agora?" },
+            { "id": "2.3", "rotulo": "Recebi notificação — o que fazer?" },
+            { "id": "2.4", "rotulo": "Quero retificar meu cadastro" },
+            { "id": "2.1", "rotulo": "Voltar" }
+          ]
+        },
+        "2.3": {
+          "id": "2.3",
+          "titulo": "Recebi notificação — e agora?",
+          "tipo": "informativo",
+          "conteudo": {
+            "topicos": [
+              "Órgão ambiental pode pedir: documentos complementares, correção de informações ou justificativa",
+              "Fique atento ao prazo informado na notificação!"
+            ],
+            "passos": [
+              "Acesse Central do Proprietário",
+              "Vá em 'Envio de documentos'",
+              "Anexe o solicitado",
+              "Justifique se necessário"
+            ],
+            "alerta": "Se não responder, o cadastro pode ser suspenso ou cancelado"
+          },
+          "opcoes": [
+            { "id": "1.7", "rotulo": "Acessar Central do Proprietário" },
+            { "id": "fluxo3", "rotulo": "Quero regularizar meu imóvel" },
+            { "id": "2.1", "rotulo": "Voltar" }
+          ]
+        },
+        "2.4": {
+          "id": "2.4",
+          "titulo": "Como retificar o cadastro",
+          "tipo": "informativo",
+          "conteudo": {
+            "passos": [
+              "Acesse a Central do Proprietário (car.gov.br → 'Central')",
+              "Faça login com CPF + senha",
+              "Selecione o imóvel",
+              "Clique em 'Retificar'",
+              "Corrija as informações e envie novamente"
+            ],
+            "alerta": "A retificação também passa por análise do órgão ambiental"
+          },
+          "opcoes": [
+            { "id": "1.7", "rotulo": "Acessar Central do Proprietário" },
+            { "id": "2.2", "rotulo": "Voltar" }
+          ]
+        }
+      }
+    },
+
+    "fluxo3": {
+      "id": "fluxo3",
+      "nome": "Quero regularizar meu imóvel",
+      "descricao": "Guia para quem precisa adequar o imóvel ao Código Florestal (APP, Reserva Legal, PRA)",
+      "rota_padrao": ["3.1", "3.2", "3.3", "3.4", "3.5", "3.6", "3.7", "3.8"],
+      "nos": {
+        "3.1": {
+          "id": "3.1",
+          "titulo": "Regularização Ambiental — introdução",
+          "tipo": "informativo",
+          "conteudo": {
+            "descricao": "Regularizar significa adequar seu imóvel ao Código Florestal (Lei 12.651/2012)",
+            "topicos": [
+              "RESERVA LEGAL: % mínima de vegetação nativa (Amazônia: 80%, Cerrado: 35%, Demais: 20%)",
+              "APP: margem de rios, nascentes, topo de morro — deve ser preservada/recuperada",
+              "ÁREA CONSOLIDADA: ocupação até 22/07/2008 — atividade PODE continuar"
+            ]
+          },
+          "opcoes": [
+            { "id": "3.2", "rotulo": "Entendi, quero regularizar" },
+            { "id": "3.3", "rotulo": "O que é Reserva Legal?" },
+            { "id": "3.4", "rotulo": "O que é APP?" },
+            { "id": "3.5", "rotulo": "O que é área consolidada?" },
+            { "id": "3.6", "rotulo": "O que é PRA?" },
+            { "id": "3.7", "rotulo": "Benefícios para pequenos" },
+            { "id": "root", "rotulo": "Voltar" }
+          ]
+        },
+        "3.2": {
+          "id": "3.2",
+          "titulo": "Como regularizar",
+          "tipo": "informativo",
+          "conteudo": {
+            "passos": [
+              "Passo 1: Tenha seu CAR em dia (sem CAR não há regularização)",
+              "Passo 2: Identifique se há passivo ambiental (APP degradada? RL abaixo do mínimo?)",
+              "Passo 3: Adira ao PRA do seu estado",
+              "Passo 4: Assine o Termo de Compromisso com o órgão ambiental",
+              "Passo 5: Execute o PRAD (Projeto de Recuperação de Área Degradada)"
+            ],
+            "destaque": "Com a adesão ao PRA, multas por infrações até 22/07/2008 ficam SUSPENSAS"
+          },
+          "opcoes": [
+            { "id": "3.6", "rotulo": "O que é PRA?" },
+            { "id": "3.7", "rotulo": "Benefícios para pequenos" },
+            { "id": "3.1", "rotulo": "Voltar" }
+          ]
+        },
+        "3.3": {
+          "id": "3.3",
+          "titulo": "Reserva Legal",
+          "tipo": "informativo",
+          "conteudo": {
+            "definicao": "Área dentro do imóvel que deve manter vegetação nativa",
+            "topicos": [
+              "Amazônia Legal: 80%",
+              "Cerrado na Amazônia Legal: 35%",
+              "Demais regiões: 20%"
+            ],
+            "opcoes_regularizacao": [
+              "RECOMPOR — plantar nativas na própria área",
+              "REGENERAR — deixar recuperar naturalmente",
+              "COMPENSAR — usar área em outro imóvel (mesmo bioma)"
+            ],
+            "observacao": "Para ≤4 módulos fiscais: fica 'congelada' na vegetação que existia em 22/07/2008"
+          },
+          "opcoes": [
+            { "id": "3.4", "rotulo": "O que é APP?" },
+            { "id": "3.5", "rotulo": "O que é área consolidada?" },
+            { "id": "3.7", "rotulo": "Benefícios para pequenos" },
+            { "id": "3.1", "rotulo": "Voltar" }
+          ]
+        },
+        "3.4": {
+          "id": "3.4",
+          "titulo": "APP — Área de Preservação Permanente",
+          "tipo": "informativo",
+          "conteudo": {
+            "definicao": "Áreas protegidas por lei, independentemente de ter ou não vegetação nativa",
+            "exemplos": [
+              "Margem de rios (largura varia conforme largura do rio)",
+              "Nascentes (raio de 50m)",
+              "Topo de morros",
+              "Encostas com declividade >45°",
+              "Manguezais",
+              "Veredas"
+            ],
+            "observacao": "Para pequenos (≤4 módulos): regras mais flexíveis para recuperação de APP"
+          },
+          "opcoes": [
+            { "id": "3.3", "rotulo": "O que é Reserva Legal?" },
+            { "id": "3.5", "rotulo": "O que é área consolidada?" },
+            { "id": "3.1", "rotulo": "Voltar" }
+          ]
+        },
+        "3.5": {
+          "id": "3.5",
+          "titulo": "Área Consolidada",
+          "tipo": "informativo",
+          "conteudo": {
+            "definicao": "Área que já estava sendo usada (pasto, lavoura, benfeitoria) antes de 22/07/2008",
+            "topicos": [
+              "PODE continuar usando",
+              "Não precisa reflorestar",
+              "Não pode ser embargada",
+              "Mas PRECISA estar no CAR!"
+            ],
+            "observacao": "A consolidação é declarada no CAR, mas só é homologada após validação do órgão ambiental (cruzamento com imagens de satélite de 2008)"
+          },
+          "opcoes": [
+            { "id": "3.7", "rotulo": "Benefícios para pequenos" },
+            { "id": "3.1", "rotulo": "Voltar" }
+          ]
+        },
+        "3.6": {
+          "id": "3.6",
+          "titulo": "PRA — Programa de Regularização Ambiental",
+          "tipo": "informativo",
+          "conteudo": {
+            "definicao": "Programa de cada estado para ajudar produtores a regularizar suas propriedades",
+            "passos": [
+              "Faça o CAR",
+              "Adira ao PRA do seu estado",
+              "Assine o TERMO DE COMPROMISSO com cronograma",
+              "Execute as ações combinadas"
+            ],
+            "topicos": [
+              "Multas por infrações pré-2008 ficam SUSPENSAS",
+              "Prazo para regularizar",
+              "Acompanhamento do órgão ambiental"
+            ]
+          },
+          "opcoes": [
+            { "id": "3.7", "rotulo": "Benefícios para pequenos" },
+            { "id": "3.1", "rotulo": "Voltar" }
+          ]
+        },
+        "3.7": {
+          "id": "3.7",
+          "titulo": "Benefícios para pequenos produtores (≤4 módulos fiscais)",
+          "tipo": "informativo",
+          "conteudo": {
+            "descricao": "A lei trata de forma especial propriedades de até 4 módulos fiscais (varia de 5 a 110 hectares por município)",
+            "topicos": [
+              "Reserva Legal 'congelada' no percentual de 22/07/2008",
+              "APP com regras mais leves (larguras menores, pode computar APP na RL)",
+              "Croqui simples (não precisa de planta profissional)",
+              "Pode usar espécies exóticas em até 50% da área a recuperar",
+              "Procedimentos simplificados para manejo da RL"
+            ]
+          },
+          "opcoes": [
+            { "id": "3.8", "rotulo": "O que é módulo fiscal?" },
+            { "id": "3.1", "rotulo": "Voltar à regularização" },
+            { "id": "root", "rotulo": "Voltar ao início" }
+          ]
+        },
+        "3.8": {
+          "id": "3.8",
+          "titulo": "Módulo Fiscal",
+          "tipo": "informativo",
+          "conteudo": {
+            "definicao": "Unidade de medida agrária para classificar o tamanho da propriedade",
+            "topicos": [
+              "Varia de 5 a 110 hectares por município",
+              "Pequena: até 4 módulos fiscais",
+              "Média: de 4 a 15 módulos fiscais",
+              "Grande: acima de 15 módulos fiscais"
+            ],
+            "exemplo": "Se 1 módulo fiscal = 20 hectares no município, pequena propriedade = até 80 hectares"
+          },
+          "opcoes": [
+            { "id": "3.7", "rotulo": "Voltar aos benefícios" },
+            { "id": "3.1", "rotulo": "Voltar" }
+          ]
+        }
+      }
+    },
+
+    "fluxo4": {
+      "id": "fluxo4",
+      "nome": "O que é CAR?",
+      "descricao": "Explicações básicas sobre o Cadastro Ambiental Rural",
+      "rota_padrao": ["4.1", "4.2", "4.3", "4.4"],
+      "nos": {
+        "4.1": {
+          "id": "4.1",
+          "titulo": "O que é o CAR?",
+          "tipo": "informativo",
+          "conteudo": {
+            "topicos": [
+              "CAR = Cadastro Ambiental Rural",
+              "Registro eletrônico nacional, obrigatório para TODO imóvel rural",
+              "\"Identidade ambiental\" da propriedade",
+              "Mostra: localização, uso do solo, APP, Reserva Legal",
+              "Criado pelo Código Florestal (Lei 12.651/2012)",
+              "É GRATUITO"
+            ]
+          },
+          "opcoes": [
+            { "id": "4.2", "rotulo": "Para que serve?" },
+            { "id": "1.2", "rotulo": "Quem precisa fazer?" },
+            { "id": "4.3", "rotulo": "É obrigatório? Tem prazo?" },
+            { "id": "1.4", "rotulo": "Como fazer?" },
+            { "id": "4.4", "rotulo": "Diferença entre CAR e SICAR" },
+            { "id": "root", "rotulo": "Voltar ao início" }
+          ]
+        },
+        "4.2": {
+          "id": "4.2",
+          "titulo": "Para que serve?",
+          "tipo": "informativo",
+          "conteudo": {
+            "topicos": [
+              "Controle ambiental — governo mapeia matas, rios e áreas protegidas",
+              "Planejamento — ajuda o produtor a planejar o uso da terra",
+              "Proteção legal — comprova a situação ambiental do imóvel",
+              "Acesso a benefícios — crédito rural, regularização, suspensão de multas",
+              "Transparência — qualquer pessoa pode consultar"
+            ]
+          },
+          "opcoes": [
+            { "id": "4.1", "rotulo": "Voltar" }
+          ]
+        },
+        "4.3": {
+          "id": "4.3",
+          "titulo": "É obrigatório? Tem prazo?",
+          "tipo": "informativo",
+          "conteudo": {
+            "topicos": [
+              "SIM, é obrigatório por lei para todo imóvel rural",
+              "Prazo: não há (sistema permanentemente aberto desde 2019)",
+              "Mas é melhor não adiar: sem CAR não há crédito rural, regularização ou proteção legal",
+              "Multas previstas em caso de não cumprimento (varia por estado)"
+            ]
+          },
+          "opcoes": [
+            { "id": "1.4", "rotulo": "Como fazer o CAR?" },
+            { "id": "4.1", "rotulo": "Voltar" }
+          ]
+        },
+        "4.4": {
+          "id": "4.4",
+          "titulo": "CAR vs SICAR",
+          "tipo": "informativo",
+          "conteudo": {
+            "topicos": [
+              "CAR = Cadastro Ambiental Rural — é o registro, os dados da propriedade",
+              "SICAR = Sistema Nacional de Cadastro Ambiental Rural — é o sistema onde o CAR é gerenciado",
+              "Analogia: CAR é sua identidade, SICAR é o cartório"
+            ]
+          },
+          "opcoes": [
+            { "id": "1.4", "rotulo": "Como fazer o CAR?" },
+            { "id": "4.1", "rotulo": "Voltar" }
+          ]
+        }
+      }
+    }
+  }
+}
