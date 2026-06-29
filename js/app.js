@@ -212,7 +212,7 @@ const App = {
 
   async loadTree() {
     try {
-      const resp = await fetch('ARVORES_DECISAO.json');
+      const resp = await fetch('data/ARVORES_DECISAO.json');
       tree = await resp.json();
     } catch (e) {
       document.getElementById('app-content').innerHTML =
